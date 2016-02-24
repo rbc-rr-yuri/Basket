@@ -1,10 +1,11 @@
 package com.rbc.rr;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
 
 interface BasketService {
-    BigDecimal totalCost(List<List<Item>> baskets);
+    BigDecimal totalCost(List<List<Item>> baskets, HashSet<Class> allowedItems);
 }
 
 interface Item {
@@ -65,6 +66,12 @@ class Lemon extends BasketItem{
 }
 class Peach extends BasketItem{
     public Peach(BigDecimal price) {
+        super(price);
+    }
+}
+
+class Car extends BasketItem{
+    public Car(BigDecimal price) {
         super(price);
     }
 }
